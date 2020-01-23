@@ -31,13 +31,13 @@ module.exports = {
         text: 'Tag', // 默认 “标签”
       },
     },
-    sidebarDepth: 2,
+    sidebarDepth: 3,
     // 文档更新时间
-    lastUpdated: 'Last Updated',
-    authorAvatar: './avatar.jpeg',
+    lastUpdated: false,
+    authorAvatar: '/avatar.jpeg',
     author: 'leecason',
     startYear: '2018',
-    logo: './avatar.jpeg',
+    logo: '/avatar.jpeg',
     // 搜索设置
     search: true,
   },

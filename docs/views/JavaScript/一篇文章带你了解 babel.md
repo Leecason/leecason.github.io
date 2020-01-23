@@ -16,6 +16,8 @@ tags:
 4. babel 7.x
 :::
 
+<!-- more -->
+
 摘录自[一口(很长的)气了解 babel](https://juejin.im/post/5c19c5e0e51d4502a232c1c6)
 
 ## 介绍
