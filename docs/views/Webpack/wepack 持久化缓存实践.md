@@ -1,5 +1,5 @@
 ---
-title: webpack 持久化缓存实践
+title: Webpack 持久化缓存实践
 date: 2019-08-31
 categories:
   - Webpack
@@ -8,6 +8,13 @@ tags:
   - 部署
   - 持久化缓存
 ---
+
+::: tip
+1. 什么是持久化缓存
+2. 为什么做持久化缓存
+3. webpack 如何做持久化缓存
+4. webpack 做持久化缓存有什么需要注意的点
+:::
 
 ## 持久化缓存
 

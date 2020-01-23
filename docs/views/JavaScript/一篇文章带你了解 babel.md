@@ -9,6 +9,13 @@ tags:
   - JavaScript
 ---
 
+::: tip
+1. babel 介绍
+2. babel 插件集合
+3. babel 配套工具
+4. babel 7.x
+:::
+
 摘录自[一口(很长的)气了解 babel](https://juejin.im/post/5c19c5e0e51d4502a232c1c6)
 
 ## 介绍
@@ -109,23 +116,23 @@ latest 是 `env` 的雏形，每年更新的 preset，目的是包含所有 es20
 
 ## 配套工具
 
-### babel-cli
+### `babel-cli`
 
 cli 就是命令行工具。允许命令行使用 babel 命令转译文件。
 
-### babel-node
+### `babel-node`
 
 随 `babel-cli` 一起安装
 允许命令行使用 `babel-node` 直接转译+执行 node 文件
 `babel-node = babel-polyfill + babel-register`
 
-### babel-register
+### `babel-register`
 
 `babel-register` 模块改写 require 命令，为它加上一个钩子。此后，每当使用 require 加载 .js、.jsx、.es 和 .es6 后缀名的文件，就会先用 babel 进行转码。
 需要注意的是，babel-register 只会对 require 命令加载的文件转码，而**不会对当前文件转码。**
 另外，由于它是实时转码，所以**只适用于开发环境。**
 
-### babel-polyfill
+### `babel-polyfill`
 
 **为所有 API 增加兼容方法**
 

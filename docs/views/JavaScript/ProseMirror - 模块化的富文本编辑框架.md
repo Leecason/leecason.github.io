@@ -9,6 +9,12 @@ tags:
   - JavaScript
 ---
 
+::: tip
+- 简单介绍 ProseMirror, 了解 ProseMirror 的相关概念
+- ProseMirror 数据结构
+- ProseMirror 运作原理
+:::
+
 关于富文本编辑器，很多同学没用过也听过了。是大家都不想去踩的坑。到底有多坑呢？
 
 我这里摘了一部分一位大哥在知乎上的[回答](https://www.zhihu.com/question/26739121)，如果有兴趣，可以去看看。
@@ -23,8 +29,7 @@ tags:
 
 由于`prosemirror`目前使用搜索引擎能搜出来的中文资料几乎没有，遇到问题也只能去`论坛`，`issue`里面搜，或者向作者提问。以下的内容是从官网，加上自己在使用过程中对它的理解简化出来的。希望看完后，能让你对`prosemirror`产生兴趣，并从作者的设计思路中，学到东西，一起分享。
 
-## ProseMirror简介
-
+## ProseMirror 简介
 
 >	A toolkit for building rich-text editors on the web
 
@@ -42,8 +47,7 @@ tags:
 
 现在你应该大概了解了它们各自的作用，它们是整个编辑器的基础。
 
-## 实现一个编辑器demo
-
+## 实现一个编辑器 demo
 
 ```javascript
 import { schema } from "prosemirror-schema-basic"
@@ -57,8 +61,7 @@ let view = new EditorView(document.body, { state })
 
 因为`prosemirror`定义了自己的数据结构来表示文档内容。在`prosemirror结构`与`HTML的Dom结构`之间，需要一次解析与转化，这两者间相互转化的**桥梁**，就是我们的`schema`，所以要先了解一下`prosemirror`的文档结构。
 
-## prosemirror文档结构
-
+## prosemirror 文档结构
 
 `prosemirror`的文档是一个`Node`,它包含零个或多个`child Nodes`的`Fragment(片段)`。
 
@@ -201,7 +204,6 @@ let view = new EditorView(document.body, { state })
 
 ## Transaction
 
-
 当用户键入或者其他方式与视图交互时，都会产生`transaction`。描述对`state`所做的更改，并且可以用来创建新的`state`，然后更新视图。
 
 下图是`prosemirror`简单的循环数据流`data flow`：编辑器视图显示给定的`state`，当发生某些`event`时，它会创建一个`transaction`并`broadcast`它。然后，此`transaction`通常用于创建新`state`，该`state`使用`updateState`方法提供给视图 。
@@ -230,12 +232,10 @@ let view = new EditorView(document.body, {
 
 ## Immutable
 
-
 `prosemirror`的数据结构是`immutable`的，不可变的，你不能直接去赋值它，你只能通过相应的`API`去创建新的引用。但是在不同的引用之间，相同的部分是共享的。这就好比，有一颗基于`immutable`的嵌套复杂很深的文档树，即使你只改变了某个地方的叶子节点，也会生成一棵新树，但这棵新树，除了刚才更改的叶子节点外，其余部分和原有树是共享的。有了`immutable`，当每次键入编辑器都会产生新的`state`，你在每种不同的`state`之间来回切换，就能实现撤销重做操作。同时，更新`state`重绘文档也变得更高效了。
 
 
 ## State
-
 
 是什么构成了`prosemirror`的`state`呢？`state`有三个主要组成部分：你的文档`doc`， 当前选择`selection`和当前存储的`mark`集`storedMarks`。
 
@@ -253,7 +253,6 @@ let state = EditorState.create({
 `storedMarks`则表示需要应用于下一次输入时的一组`Mark`。
 
 ## Plugins
-
 
 `plugin`以各种方式扩展编辑器和编辑器`state`。当创建一个新的`state`，你可以向其提供一系列的`plugin`，这些将会保存在此`state`和由此`state`派生的任何`state`中。并且可以影响`transaction`的应用方式以及基于此`state`的编辑器的行为方式。
 创建`plugin`时，会向其传递一个指定其行为的对象。
@@ -308,7 +307,6 @@ let view = new EditorView(document.body, {state})
 
 ## Commands
 
-
 上面的`undo`, `redo`是一种`command`，大多数的编辑操作都被视为`command`。它可以绑定到菜单或者键上，或者其他方式暴露给用户。在`prosemirror`中，`command`是实现编辑操作的功能，它们大多是采用编辑器`state`和`dispatch`函数(`EditorView.dispatch`或者一些其他采用了`transaction`的函数)完成的。下面是一个简单的例子:
 ```javascript
 function deleteSelection(state, dispatch) {
@@ -332,6 +330,5 @@ function clear(state, dispatch) {
 ```
 
 ## 总结
-
 
 上述介绍可以作为对`prosemirror`的一个简单的认识，了解了它的运作原理，避免你第一次接触它的时候，看到它的这么多库，不知道从哪上手。`prosemirror`除了上面介绍的概念以外，还有`Decorations`，`NodeViews`等，它们使你可以控制视图绘制文档的方式。如果你还想继续深入的了解`prosemirror`，可以前往它的[官网](http://prosemirror.net/)和[论坛](https://discuss.prosemirror.net/)，希望你能成为它的贡献者。

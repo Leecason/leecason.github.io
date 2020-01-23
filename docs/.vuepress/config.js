@@ -1,6 +1,7 @@
 module.exports = {
   title: 'Leecason',
   description: 'Talk is cheap. Show me the code.',
+  locales: { '/': { lang: 'zh' } },
   head: [
     ['meta', { name: 'viewport', content: 'width=device-width,initial-scale=1,user-scalable=no' }],
   ],
@@ -8,6 +9,7 @@ module.exports = {
   themeConfig: {
     type: 'blog',
     huawei: false,
+    // 自动形成侧边导航
     sidebar: 'auto',
     nav: [
       { text: 'Home', link: '/', icon: 'reco-home' },
@@ -30,8 +32,16 @@ module.exports = {
       },
     },
     sidebarDepth: 2,
-    lastUpdated: 'Last Updated', // 文档更新时间：每个文件 git 最后提交的时间
+    // 文档更新时间
+    lastUpdated: 'Last Updated',
     authorAvatar: './avatar.jpeg',
     author: 'leecason',
+    startYear: '2018',
+    logo: './avatar.jpeg',
+    // 搜索设置
+    search: true,
+  },
+  markdown: {
+    lineNumbers: true
   },
 };
