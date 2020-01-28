@@ -1,13 +1,18 @@
 ---
-title: 「译」 VueDose Tips - 在 Vue 2.6 中不使用 Vuex 创建 Store
-date: 2019-05-15
+title: 「译」 VueDose Tip 6 - 在 Vue 2.6 中不使用 Vuex 创建 Store
+date: 2020-01-10
+sidebar: false
 categories:
   - Vue
 tags:
   - Vue
+  - Vuex
+  - Vue 2.x
   - VueDose
   - Vue tips
   - 文章翻译
+prev: ./5-使用 v-bind 和 v-on 的自适应组件
+next: ./7-基于 vue-multiselect 构建一个 ImageSelect 组件
 ---
 
 Vue.js 2.6 引入了一些新特性，我真正喜欢的是这个新的全局 [observable API](https://vuejs.org/v2/api/#Vue-observable)。
@@ -71,6 +76,6 @@ export const mutations = {
 </script>
 ```
 
-如果你想自己尝试这个例子，我已经在 [CodeSandbox](https://codesandbox.io/s/k3kpqz2wz7) 中为你编译好了，去试一下吧。
+[CodeSandbox](https://codesandbox.io/s/k3kpqz2wz7)
 
 [原文链接](https://vuedose.tips/tips/creating-a-store-without-vuex-in-vue-js-2-6)

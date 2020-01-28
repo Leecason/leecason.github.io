@@ -1,20 +1,24 @@
 ---
-title: 「译」 VueDose Tips - 评估 Vue app 中的运行时性能
-date: 2020-01-24
+title: 「译」 VueDose Tip 2 - 评估 Vue 应用程序中的运行时性能
+date: 2020-01-03
+sidebar: false
 categories:
   - Vue
 tags:
   - Vue
+  - Vue 2.x
   - VueDose
   - Vue tips
-  - 性能提升
+  - Web 性能
   - 文章翻译
   - 浏览器调试
+prev: ./1-提高 Vue 中大型列表的性能
+next: ./3-通过 PurgeCss 移除未使用的 CSS
 ---
 
-在[提高 Vue 中大型列表的性能](http://localhost:8081/views/Vue/VueDose/%E6%8F%90%E9%AB%98%20Vue%20%E4%B8%AD%E5%A4%A7%E5%9E%8B%E5%88%97%E8%A1%A8%E7%9A%84%E6%80%A7%E8%83%BD.html)中，我们讨论了如何在大型列表中去提升性能。但是我们仍然无法衡量它真正改善提升了多少。
+在[提高 Vue 中大型列表的性能](/articles/Vue/VueDose/1-提高%20Vue%20中大型列表的性能)中，我们讨论了如何在大型列表中去提升性能。但是我们仍然无法衡量它真正改善提升了多少。
 
-我们可以使用 `Chrome DevTools` 中的 `Performance` 标签来做到这一点。但是为了获得准确的数据，我们必须在 `Vue` app 上**激活性能模式**。
+我们可以使用 `Chrome DevTools` 中的 `Performance` 标签来做到这一点。但是为了获得准确的数据，我们必须在 `Vue` 应用程序上**激活性能模式**。
 
 我们可以在 `main.js` 文件中或者插件中（对于`Nuxt`）设置全局变量来做到这一点：
 
@@ -45,7 +49,7 @@ Vue.config.performance = isDev;
 - **Render**：创建 VDom 结构的时间
 - **Patch**： 挂载 VDom 到实际 DOM 的时间
 
-回到好奇心，[提高 Vue 中大型列表的性能](http://localhost:8081/views/Vue/VueDose/%E6%8F%90%E9%AB%98%20Vue%20%E4%B8%AD%E5%A4%A7%E5%9E%8B%E5%88%97%E8%A1%A8%E7%9A%84%E6%80%A7%E8%83%BD.html)的这篇文章的结果如下： 正常组件**需要 417ms 去初始化**：
+回到好奇心，[提高 Vue 中大型列表的性能](/articles/Vue/VueDose/1-提高%20Vue%20中大型列表的性能)的这篇文章的结果如下： 正常组件**需要 417ms 去初始化**：
 
 ![reactive_init](./images/reactive_init.png)
 

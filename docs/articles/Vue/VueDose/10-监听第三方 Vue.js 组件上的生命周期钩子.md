@@ -1,13 +1,17 @@
 ---
-title: 「译」 VueDose Tips - 监听第三方 Vue.js 组件上的生命周期钩子
-date: 2019-05-16
+title: 「译」 VueDose Tip 10 - 监听第三方 Vue.js 组件上的生命周期钩子
+date: 2020-01-16
+sidebar: false
 categories:
   - Vue
 tags:
   - Vue
+  - Vue 2.x
   - VueDose
   - Vue tips
   - 文章翻译
+prev: ./9-快照测试（Snapshot Testing）在 Vue.js 中的威力
+next: ./11-简单且高性能的 Vue.js 函数式组件
 ---
 
 这是我从我的朋友 [Damian Dulisz](https://twitter.com/damiandulisz) 那里学到的一个非常有用的技巧，他是 Vue.js 核心团队的成员，他创建了 [Vue newsletter](https://news.vuejs.org/) 和 [vue-multiselect](https://vue-multiselect.js.org/)。
@@ -34,6 +38,6 @@ mounted() {
 <v-runtime-template @hook:updated="doSomething" :template="template" />
 ```
 
-如果你还是不相信，在 [CodeSandbox](https://codesandbox.io/s/18r05pkmn7) 中自己确认吧。
+[CodeSandbox](https://codesandbox.io/s/18r05pkmn7)
 
 [原文链接](https://vuedose.tips/tips/listen-to-lifecycle-hooks-on-third-party-vue-js-components)

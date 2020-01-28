@@ -1,13 +1,17 @@
 ---
-title: 「译」 VueDose Tips - 简单且高性能的 Vue.js 函数式组件
-date: 2019-05-17
+title: 「译」 VueDose Tip 11 - 简单且高性能的 Vue.js 函数式组件
+date: 2020-01-17
+sidebar: false
 categories:
   - Vue
 tags:
   - Vue
+  - Vue 2.x
   - VueDose
   - Vue tips
   - 文章翻译
+prev: ./10-监听第三方 Vue.js 组件上的生命周期钩子
+next: ./12-当 Vue 组件创建的时候执行侦听器
 ---
 
 有时候我们不需要复杂的组件，在某些情况下我们甚至不需要它们具有自己的状态。当构建没有太多逻辑的 UI 组件时可能就是这种情况。
@@ -55,6 +59,6 @@ tags:
 - 因为我们无权使用 `$emit`，所以我们可以将函数作为 prop。这就是 Reach 社区一直以来所做的，并且运行良好。
 - 无需 `script` 部分
 
-你想看到它的作用吗？在此 [CodeSandbox](https://codesandbox.io/s/rwxp7pnklo) 中自己确认一下吧。
+[CodeSandbox](https://codesandbox.io/s/rwxp7pnklo)
 
 [原文链接](https://vuedose.tips/tips/simple-and-performant-functional-vue-js-components)

@@ -1,14 +1,17 @@
 ---
-title: 「译」 VueDose Tips - 提高 Vue 中大型列表的性能
-date: 2020-01-23
+title: 「译」 VueDose Tip 1 - 提高 Vue 中大型列表的性能
+date: 2020-01-01
+sidebar: false
 categories:
   - Vue
 tags:
   - Vue
+  - Vue 2.x
   - VueDose
   - Vue tips
-  - 性能提升
+  - Web 性能
   - 文章翻译
+next: ./2-评估 Vue 应用程序中的运行时性能
 ---
 
 通常，我们需要获取对象列表，例如 user 列表，item 列表，articles 列表等等。
