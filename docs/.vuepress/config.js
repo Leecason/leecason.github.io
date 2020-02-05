@@ -38,7 +38,7 @@ module.exports = {
     authorAvatar: '/avatar.jpeg',
     author: 'leecason',
     startYear: '2018',
-    logo: '/avatar.jpeg',
+    logo: '/logo.jpeg',
     // 搜索设置
     search: true,
   },
