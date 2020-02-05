@@ -6,7 +6,7 @@ categories:
   - Vue
 tags:
   - Vue
-  - Vue 2.x
+  - Vue 2
   - webpack
   - VueDose
   - Vue tips

@@ -7,7 +7,7 @@ categories:
 tags:
   - Vue
   - Vuex
-  - Vue 2.x
+  - Vue 2
   - VueDose
   - Vue tips
   - 文章翻译

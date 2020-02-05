@@ -6,7 +6,7 @@ categories:
   - Vue
 tags:
   - Vue
-  - Vue 3.x
+  - Vue 3
   - VueDose
   - Vue tips
   - 文章翻译
