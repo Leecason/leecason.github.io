@@ -11,7 +11,7 @@ tags:
   - Vue tips
   - 文章翻译
 prev: ./27-在 Vue.js 中使用 CSS 变量进行主题化
-next: ./29-在 Vue.js 3 Composition API 中使用旧版实例属性
+next: ./29-在 Vue.js 3 Composition API 中访问实例属性
 ---
 
 Vue.js 3 已经达到 Alpha 版本的事情让我觉得...现在是该来点 Vue.js 3 的 Tip 了！

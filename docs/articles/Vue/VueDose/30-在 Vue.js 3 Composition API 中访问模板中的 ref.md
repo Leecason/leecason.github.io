@@ -14,7 +14,7 @@ prev: ./29-在 Vue.js 3 Composition API 中访问实例属性
 
 ---
 
-你已经在上一个 Tip [在 Vue.js 3 Composition API 中访问实例属性](/articles/Vue/VueDose/29-在%20Vue.js%203%20Composition%20API%20中使用旧版实例属性)中，看到了如何使用新语法访问实例属性。
+你已经在上一个 Tip [在 Vue.js 3 Composition API 中访问实例属性](/articles/Vue/VueDose/29-在%20Vue.js%203%20Composition%20API%20中访问实例属性)中，看到了如何使用新语法访问实例属性。
 
 但是，你如果读过上一个 Tip，你已经了解到我们钟爱的 `this.$refs` 并不包含在 **setup context 对象** 中。
 
