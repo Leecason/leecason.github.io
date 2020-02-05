@@ -65,4 +65,4 @@ Vue 会将 `$options.watch` 对象附加到我们在组件中定义的每个侦�
 
 测试其中的逻辑，不要浪费你宝贵的时间来尝试重新创建可能引起侦听器触发的场景和条件。
 
-[原文链接](https://vuedose.tips/tips/testing-logic-inside-a-vue-js-watcher)
+### [原文链接](https://vuedose.tips/tips/testing-logic-inside-a-vue-js-watcher)

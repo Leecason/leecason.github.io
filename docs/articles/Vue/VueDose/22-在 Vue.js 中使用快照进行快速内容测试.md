@@ -127,4 +127,4 @@ etc.
 
 测试愉快！
 
-[原文链接](https://vuedose.tips/tips/quick-content-testing-using-snapshots-in-vue-js)
+### [原文链接](https://vuedose.tips/tips/quick-content-testing-using-snapshots-in-vue-js)

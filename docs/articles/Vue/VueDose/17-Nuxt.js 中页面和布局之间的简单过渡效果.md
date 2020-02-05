@@ -86,4 +86,6 @@ module.exports = {
 
 这些只是 Nuxt.js 中页面之间转换的基础。Vue.js 的内部隐藏着更多的内容，可用于创建疯狂的动画和过渡。因此，请继续挖掘文档并查看 Sarah Drasner 的[这个示例](https://github.com/sdras/page-transitions-travelapp)。
 
-[原文链接](https://vuedose.tips/tips/simple-transition-effect-between-pages-and-layouts-in-nuxt-js)
+### [CodeSandbox](https://codesandbox.io/embed/2xovlqpv9n)
+
+### [原文链接](https://vuedose.tips/tips/simple-transition-effect-between-pages-and-layouts-in-nuxt-js)

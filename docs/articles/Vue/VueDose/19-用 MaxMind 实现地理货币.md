@@ -109,4 +109,4 @@ this.$nuxt.$emit("geolocationFound", success.country.iso_code)
 
 到你的`mounted`生命周期中。
 
-[原文链接](https://vuedose.tips/tips/geolocated-currency-with-max-mind)
+### [原文链接](https://vuedose.tips/tips/geolocated-currency-with-max-mind)

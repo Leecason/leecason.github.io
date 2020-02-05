@@ -38,6 +38,6 @@ mounted() {
 <v-runtime-template @hook:updated="doSomething" :template="template" />
 ```
 
-[CodeSandbox](https://codesandbox.io/s/18r05pkmn7)
+### [CodeSandbox](https://codesandbox.io/s/18r05pkmn7)
 
-[原文链接](https://vuedose.tips/tips/listen-to-lifecycle-hooks-on-third-party-vue-js-components)
+### [原文链接](https://vuedose.tips/tips/listen-to-lifecycle-hooks-on-third-party-vue-js-components)

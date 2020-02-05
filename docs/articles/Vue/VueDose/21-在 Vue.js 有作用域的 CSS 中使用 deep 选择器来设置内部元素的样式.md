@@ -37,4 +37,6 @@ next: ./22-在 Vue.js 中使用快照进行快速内容测试
 
 看看[更新后的示例](https://codesandbox.io/s/40y6v5w3w0)，看看它现在如何按预期工作的，并且每个都有不同的颜色。
 
-[原文链接](https://vuedose.tips/tips/style-inner-elements-in-scoped-css-using-deep-selector-in-vue-js)
+### [CodeSandbox](https://codesandbox.io/s/40y6v5w3w0)
+
+### [原文链接](https://vuedose.tips/tips/style-inner-elements-in-scoped-css-using-deep-selector-in-vue-js)

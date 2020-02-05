@@ -126,6 +126,6 @@ export default {
 
 ![migrate_to_composition_api](./images/migrate_to_composition_api.png)
 
-[CodeSandbox](https://codesandbox.io/s/composition-api-simple-demo-lp0z5)
+### [CodeSandbox](https://codesandbox.io/s/composition-api-simple-demo-lp0z5)
 
-[原文链接](https://vuedose.tips/tips/easily-switch-to-composition-api-in-vuejs-3)
+### [原文链接](https://vuedose.tips/tips/easily-switch-to-composition-api-in-vuejs-3)

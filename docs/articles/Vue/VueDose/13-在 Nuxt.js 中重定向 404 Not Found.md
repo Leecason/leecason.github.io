@@ -59,4 +59,4 @@ export default {
 
 输入任何不存在的 Url 试一下。你可以看到如何重定向的。
 
-[原文链接](https://vuedose.tips/tips/redirect-404-not-found-in-nuxt-js)
+### [原文链接](https://vuedose.tips/tips/redirect-404-not-found-in-nuxt-js)

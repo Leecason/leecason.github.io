@@ -90,4 +90,4 @@ Vue.prototype.$log = console.log;
 
 就这样！我希望借助这些技巧，你将发现自己对调试 Vue 模板更有信心，并乐于检查编译后的渲染函数的内部。
 
-[原文链接](https://vuedose.tips/tips/debugging-templates-in-vue-js)
+### [原文链接](https://vuedose.tips/tips/debugging-templates-in-vue-js)

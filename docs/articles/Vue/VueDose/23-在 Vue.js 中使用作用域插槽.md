@@ -74,6 +74,6 @@ Vue.js 具有*插槽*，来使组件具有可重新定义的结构，但它们�
 
 你看到作用域插槽的威力了吗？你可以做一些更强大的工作，例如无渲染（render-less）组件，这将在以后的 Tip 中看到。
 
-[CodeSandbox](https://codesandbox.io/s/yjjq04vn91)
+### [CodeSandbox](https://codesandbox.io/s/yjjq04vn91)
 
-[原文链接](https://vuedose.tips/tips/using-scoped-slots-in-vue-js)
+### [原文链接](https://vuedose.tips/tips/using-scoped-slots-in-vue-js)

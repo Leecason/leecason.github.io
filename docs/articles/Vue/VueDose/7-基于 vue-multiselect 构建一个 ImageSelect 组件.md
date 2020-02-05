@@ -145,4 +145,6 @@ next: ./8-关于 Vuex 的两个鲜为人知的事实
 
 *Pss：他们有一些CSS技巧，我们将在接下来的技巧中介绍*
 
-[原文链接](https://vuedose.tips/tips/create-an-image-select-component-on-top-of-vue-multiselect)
+### [CodeSandbox](https://codesandbox.io/s/n71oq781r0)
+
+### [原文链接](https://vuedose.tips/tips/create-an-image-select-component-on-top-of-vue-multiselect)

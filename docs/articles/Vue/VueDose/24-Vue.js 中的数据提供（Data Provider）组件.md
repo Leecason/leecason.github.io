@@ -98,6 +98,6 @@ export default {
 
 以上！
 
-[CodeSandbox](https://codesandbox.io/s/2w6zp30kjy)
+### [CodeSandbox](https://codesandbox.io/s/2w6zp30kjy)
 
-[原文链接](https://vuedose.tips/tips/data-provider-component-in-vue-js)
+### [原文链接](https://vuedose.tips/tips/data-provider-component-in-vue-js)

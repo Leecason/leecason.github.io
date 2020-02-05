@@ -76,6 +76,6 @@ export const mutations = {
 </script>
 ```
 
-[CodeSandbox](https://codesandbox.io/s/k3kpqz2wz7)
+### [CodeSandbox](https://codesandbox.io/s/k3kpqz2wz7)
 
-[原文链接](https://vuedose.tips/tips/creating-a-store-without-vuex-in-vue-js-2-6)
+### [原文链接](https://vuedose.tips/tips/creating-a-store-without-vuex-in-vue-js-2-6)

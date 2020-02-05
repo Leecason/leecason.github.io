@@ -57,6 +57,6 @@ export default {
 
 你可以通过 `.value` 属性访问这个 ref 的值，就像访问其它响应式变量一样。你如果按照示例中所示进行操作，则应该在控制台中看到结果  *titleRef  `<h2>10.00</h2>`*。
 
-[CodeSandbox](https://codesandbox.io/s/template-refs-in-composition-api-w8rux)
+### [CodeSandbox](https://codesandbox.io/s/template-refs-in-composition-api-w8rux)
 
-[原文链接](https://vuedose.tips/tips/access-template-refs-in-composition-api-in-vuejs-3)
+### [原文链接](https://vuedose.tips/tips/access-template-refs-in-composition-api-in-vuejs-3)

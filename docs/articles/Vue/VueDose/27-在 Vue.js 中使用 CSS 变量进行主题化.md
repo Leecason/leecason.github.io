@@ -220,6 +220,6 @@ export default {
 
 我们可以切换 `--background-color` 和 `--on-background-color` 来创建新的主题！仅此而已。感谢你的通读！
 
-[CodeSandbox](https://codesandbox.io/s/vuedose-84yg5)
+### [CodeSandbox](https://codesandbox.io/s/vuedose-84yg5)
 
-[原文链接](https://vuedose.tips/tips/theming-using-custom-properties-in-vuejs-components)
+### [原文链接](https://vuedose.tips/tips/theming-using-custom-properties-in-vuejs-components)

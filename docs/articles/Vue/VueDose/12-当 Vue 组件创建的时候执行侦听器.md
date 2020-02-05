@@ -57,6 +57,6 @@ export default {
 
 如你所见，在完整版本中，你需要在侦听器对象 `handler` 键中设置侦听器的回调函数。
 
-[CodeSandbox](https://codesandbox.io/s/rwxp7pnklo)
+### [CodeSandbox](https://codesandbox.io/s/rwxp7pnklo)
 
-[原文链接](https://vuedose.tips/tips/run-watchers-when-a-vue-js-component-is-created)
+### [原文链接](https://vuedose.tips/tips/run-watchers-when-a-vue-js-component-is-created)

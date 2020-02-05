@@ -50,4 +50,4 @@ next: ./6-在 Vue 2.6 中不使用 Vuex 创建 Store
 
 最后，请记住，在 Vue.js 中，我们必须显示声明组件的 props 才能被解析。创建自适应组件时，一种快速的方法是使用基本组件的 props 来定义它们，就像我在例子中所做的那样：`props: AppList.props`。
 
-[原文链接](https://vuedose.tips/tips/adaptive-components-using-v-bind-and-v-on)
+### [原文链接](https://vuedose.tips/tips/adaptive-components-using-v-bind-and-v-on)

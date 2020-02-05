@@ -91,6 +91,6 @@ setup(props, { emit, attrs, slots }) {
 
 不用担心，我将在接下来的 Tip 中介绍！
 
-[CodeSandbox](https://codesandbox.io/s/composition-context-yq2s8)
+### [CodeSandbox](https://codesandbox.io/s/composition-context-yq2s8)
 
-[原文链接](https://vuedose.tips/tips/use-old-instance-properties-in-composition-api-in-vuejs-3)
+### [原文链接](https://vuedose.tips/tips/use-old-instance-properties-in-composition-api-in-vuejs-3)

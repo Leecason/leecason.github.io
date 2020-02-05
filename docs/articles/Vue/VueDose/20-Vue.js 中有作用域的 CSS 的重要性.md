@@ -81,4 +81,4 @@ export default {
 
 请记住，有作用域的 CSS 并不是唯一的解决方案。你也可以使用 CSS 模块或者诸如 BEM 之类的方法。
 
-[原文链接](https://vuedose.tips/tips/the-importance-of-scoped-css-in-vue-js)
+### [原文链接](https://vuedose.tips/tips/the-importance-of-scoped-css-in-vue-js)

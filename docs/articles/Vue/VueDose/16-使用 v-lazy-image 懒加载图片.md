@@ -63,4 +63,6 @@ Vue.use(VLazyImagePlugin);
 
 你可以查看由[@aarongarciah](https://twitter.com/aarongarciah)制作的[这个demo](https://codesandbox.io/s/9l3n6j5944)，在这里可以看到许多不同的 CSS 效果！
 
-[原文链接](https://vuedose.tips/tips/lazy-loading-images-with-v-lazy-image)
+### [CodeSandbox](https://codesandbox.io/s/9l3n6j5944)
+
+### [原文链接](https://vuedose.tips/tips/lazy-loading-images-with-v-lazy-image)

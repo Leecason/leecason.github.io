@@ -85,4 +85,6 @@ const unsubscribe = store.subscribeAction({
 unsubscribe();
 ```
 
-[原文链接](https://vuedose.tips/tips/two-less-known-facts-about-vuex)
+### [CodeSandbox](https://codesandbox.io/s/vm6r05qjq0)
+
+### [原文链接](https://vuedose.tips/tips/two-less-known-facts-about-vuex)

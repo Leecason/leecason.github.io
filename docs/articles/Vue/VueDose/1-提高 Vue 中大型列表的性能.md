@@ -68,4 +68,4 @@ state.users = Object.freeze([...state.users, user]);
 
 你是否想知道**性能提升**了多少？ 我们将在下一个技巧中看到它，请继续关注！
 
-[原文链接](https://vuedose.tips/tips/improve-performance-on-large-lists-in-vue-js/)
+### [原文链接](https://vuedose.tips/tips/improve-performance-on-large-lists-in-vue-js/)

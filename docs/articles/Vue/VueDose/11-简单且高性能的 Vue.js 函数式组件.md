@@ -59,6 +59,6 @@ next: ./12-当 Vue 组件创建的时候执行侦听器
 - 因为我们无权使用 `$emit`，所以我们可以将函数作为 prop。这就是 Reach 社区一直以来所做的，并且运行良好。
 - 无需 `script` 部分
 
-[CodeSandbox](https://codesandbox.io/s/rwxp7pnklo)
+### [CodeSandbox](https://codesandbox.io/s/rwxp7pnklo)
 
-[原文链接](https://vuedose.tips/tips/simple-and-performant-functional-vue-js-components)
+### [原文链接](https://vuedose.tips/tips/simple-and-performant-functional-vue-js-components)

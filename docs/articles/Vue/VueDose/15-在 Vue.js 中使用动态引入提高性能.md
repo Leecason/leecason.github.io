@@ -79,4 +79,4 @@ import MyComponent from "~/components/MyComponent.js";
 
 *PS: 对于此示例库，我使用了 webpack@4.29.6 和 Nuxt@2.4.0，后者使用了 Vue@2.5.22。*
 
-[原文链接](https://vuedose.tips/tips/dynamic-imports-in-vue-js-for-better-performance)
+### [原文链接](https://vuedose.tips/tips/dynamic-imports-in-vue-js-for-better-performance)

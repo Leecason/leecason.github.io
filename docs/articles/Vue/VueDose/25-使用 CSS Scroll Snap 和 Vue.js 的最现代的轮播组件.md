@@ -133,6 +133,6 @@ export default {
 
 但是你必须构建轮播的未来！
 
-[CodeSandbox](https://codesandbox.io/s/carousel-component-5zkbe)
+### [CodeSandbox](https://codesandbox.io/s/carousel-component-5zkbe)
 
-[原文链接](https://vuedose.tips/tips/the-most-modern-carousel-component-using-css-scroll-snap-and-vue-js)
+### [原文链接](https://vuedose.tips/tips/the-most-modern-carousel-component-using-css-scroll-snap-and-vue-js)

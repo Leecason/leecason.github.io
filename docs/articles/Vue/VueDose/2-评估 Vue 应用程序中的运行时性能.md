@@ -61,4 +61,4 @@ Vue.config.performance = isDev;
 
 以上。
 
-[原文链接](https://vuedose.tips/tips/measure-runtime-performance-in-vue-js-apps/)
+### [原文链接](https://vuedose.tips/tips/measure-runtime-performance-in-vue-js-apps/)

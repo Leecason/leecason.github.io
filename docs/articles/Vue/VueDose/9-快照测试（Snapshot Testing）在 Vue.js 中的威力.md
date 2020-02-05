@@ -77,4 +77,4 @@ it("has a message prop rendered as a data-message attribute", () => {
 
 请记住，并非总是需要快照测试。这取决于你需要测试的内容。
 
-[原文链接](https://vuedose.tips/tips/the-power-of-snapshot-testing)
+### [原文链接](https://vuedose.tips/tips/the-power-of-snapshot-testing)
