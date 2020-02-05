@@ -41,6 +41,14 @@ module.exports = {
     logo: '/logo.jpeg',
     // 搜索设置
     search: true,
+    // 评论
+    valineConfig: {
+      appId: 'KzUoq3F8YsCkQ58nNR3XQtj1-gzGzoHsz',
+      appKey: 'Q1uPUMv153GlBbfsVa8xlgY1',
+      placeholder: '欢迎交流 😁～',
+      avatar: 'wavatar',
+      notify: true,
+    },
   },
   markdown: {
     lineNumbers: true
