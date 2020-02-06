@@ -11,7 +11,7 @@ tags:
   - Vue tips
   - 文章翻译
 prev: ./26-使用 CSS Conic Gradient 和 Vue.js 的最现代的饼图组件
-next: ./28-将 Vue 组件轻松切换到 Vue.js 3 Composition API
+next: ./28-轻松切换到 Vue.js 3 Composition API
 ---
 
 这期 VueDose Tip 的主题是创建**超级通用，灵活**又健壮的组件，让我们开始吧！
