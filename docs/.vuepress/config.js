@@ -35,7 +35,7 @@ module.exports = {
     sidebarDepth: 3,
     // 文档更新时间
     lastUpdated: false,
-    authorAvatar: '/avatar.jpeg',
+    authorAvatar: '/avatar.png',
     author: 'leecason',
     startYear: '2018',
     logo: '/logo.jpeg',
