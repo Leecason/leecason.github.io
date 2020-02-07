@@ -13,23 +13,18 @@ module.exports = {
     // 自动形成侧边导航
     sidebar: 'auto',
     nav: [
-      { text: 'Home', link: '/', icon: 'reco-home' },
-      { text: 'TimeLine', link: '/timeLine/', icon: 'reco-date' },
-      { text: 'Contact',
-        icon: 'reco-message',
-        items: [
-          { text: 'GitHub', link: 'https://github.com/Leecason', icon: 'reco-github' },
-        ],
-      },
+      { text: '主页', link: '/', icon: 'reco-home' },
+      { text: '时间线', link: '/timeLine/', icon: 'reco-date' },
+      { text: 'GitHub', link: 'https://github.com/Leecason', icon: 'reco-github' },
     ],
     blogConfig: {
       category: {
         location: 2, // 在导航栏菜单中所占的位置，默认2
-        text: 'Category', // 默认 “分类”
+        text: '分类', // 默认 “分类”
       },
       tag: {
         location: 3, // 在导航栏菜单中所占的位置，默认3
-        text: 'Tag', // 默认 “标签”
+        text: '标签', // 默认 “标签”
       },
     },
     sidebarDepth: 3,
@@ -41,6 +36,7 @@ module.exports = {
     logo: '/logo.jpeg',
     // 搜索设置
     search: true,
+    searchMaxSuggestions: 10,
     // 评论
     valineConfig: {
       appId: 'KzUoq3F8YsCkQ58nNR3XQtj1-gzGzoHsz',
