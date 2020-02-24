@@ -1,6 +1,6 @@
 module.exports = {
   title: 'Leecason',
-  description: 'Talk is cheap. Show me the code.',
+  description: '若我所见不同，独守一角青空',
   locales: { '/': { lang: 'zh' } },
   head: [
     ['link', { rel: 'icon', href: '/favicon.ico' }],
@@ -31,7 +31,7 @@ module.exports = {
     // 文档更新时间
     lastUpdated: false,
     authorAvatar: '/avatar.png',
-    author: 'leecason',
+    author: 'Leecason',
     startYear: '2018',
     logo: '/logo.jpeg',
     // 搜索设置
