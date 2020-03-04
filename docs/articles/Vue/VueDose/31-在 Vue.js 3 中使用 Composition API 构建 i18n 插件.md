@@ -1,5 +1,5 @@
 ---
-title: 「译」 VueDose Tip 31 - 在 Vue.js 3 中使用Composition API 构建 i18n 插件
+title: 「译」 VueDose Tip 31 - 在 Vue.js 3 中使用 Composition API 构建 i18n 插件
 date: 2020-02-18
 sidebar: false
 categories:
@@ -11,7 +11,7 @@ tags:
   - Vue tips
   - 文章翻译
 prev: ./30-在 Vue.js 3 Composition API 中访问模板中的 ref
-
+next: ./32-Vue.js 测试中的深层渲染 VS 浅层渲染
 ---
 
 在 Vue.js 3 中使用 Composition API 编写插件的方式与之前的不同。之前的插件通过 `Vue.use(plugin)` 调用 `install` 函数来使用。它们通常会在 Vue 原型上进行操作和扩展。

@@ -11,7 +11,7 @@ tags:
   - Vue tips
   - 文章翻译
 prev: ./29-在 Vue.js 3 Composition API 中访问实例属性
-next: ./31-在 Vue.js 3 中使用Composition API 构建 i18n 插件
+next: ./31-在 Vue.js 3 中使用 Composition API 构建 i18n 插件
 ---
 
 你已经在上一个 Tip [在 Vue.js 3 Composition API 中访问实例属性](/articles/Vue/VueDose/29-在%20Vue.js%203%20Composition%20API%20中访问实例属性)中，看到了如何使用新语法访问实例属性。
