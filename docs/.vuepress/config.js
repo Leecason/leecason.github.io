@@ -49,4 +49,7 @@ module.exports = {
   markdown: {
     lineNumbers: true
   },
+  plugins: [
+    'ribbon', // 彩带背景
+  ],
 };
