@@ -25,16 +25,25 @@ tags:
 将要序列化成一个 JSON 字符串的值
 
 1.转换值有 `toJSON` 方法，则调用此方法
+
 2.非数组对象的属性不能保证序列化后的顺序
+
 3.布尔值、数字、字符串的包装对象在序列化后转为原始值
+
 4.`undefined`、任意函数以及 `symbol` 值
+
   - 直接作为 value，返回 `undefined`
   - 作为对象的属性，被忽略
   - 作为数组的属性，返回 `null`
+
 5.循环引用的对象，会抛错误
+
 6.所有以 `symbol` 为属性键的属性都会被忽略，即便第二个参数 `replacer` 中强制指定了该属性
+
 7.`Date` 日期调用自身的 `toJSON` 将其转换为字符串（同 `Date.toISOString()`）
+
 8.`NaN`、`Infinity` 及 `null` 都转为 `null`
+
 9.其他类型的对象，包括 `Map` / `Set` / `WeakMap` / `WeakSet`，仅会序列化可枚举的属性
 
 ### `replacer`
