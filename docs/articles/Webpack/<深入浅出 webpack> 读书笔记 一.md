@@ -1,5 +1,5 @@
 ---
-title: <深入浅出 webpack> 读书笔记 一
+title: 《深入浅出 webpack》 读书笔记 一
 date: 2020-04-07
 categories:
   - Webpack
@@ -10,6 +10,7 @@ tags:
   - ES Module
   - webpack
   - 核心概念
+next: ./<深入浅出 webpack> 读书笔记 二.md
 ---
 
 ::: tip
