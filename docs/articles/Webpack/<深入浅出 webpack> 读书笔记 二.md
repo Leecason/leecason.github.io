@@ -7,6 +7,7 @@ tags:
   - webpack 原理
   - webpack 流程细节
   - webpack loader
+  - webpack plugin
 prev: ./<深入浅出 webpack> 读书笔记 一.md
 ---
 
@@ -15,6 +16,7 @@ prev: ./<深入浅出 webpack> 读书笔记 一.md
 2. webpack 在构建流程中广播的事件
 3. bundle.js 分析
 4. 手写 loader
+5. 手写 plugin
 :::
 
 <!-- more -->
@@ -444,4 +446,132 @@ module.exports = {
     modules: ['node_modules', './loaders/'], // 有先后顺序，先找 node_modules，若找不到则去 ./loaders/ 下找
   },
 };
+```
+
+## 编写 Plugin
+
+让 webpack 更灵活，webpack 会在运行的生命周期中的特定时机广播出事件，plugin 可以监听这些事件来参与到构建流程中，也可以通过调用 webpack 的 API 来改变构建结果
+
+在构造函数中获取用户配置的参数
+
+webpack 启动后在读取配置的过程中实例 Plugin，在初始化 Compiler 对象后执行 plugin.apply(compiler) 给插件传递 compiler 对象，插件获取 compiler 对象后可以通过 `compiler.plugin(事件名, 回调函数)` 监听 webpack 广播出的事件，并通过 compiler 操作 webpack
+
+### Compiler 和 Compilation
+
+- Compiler 包含了 webpack 所有配置，包括 options， loaders， plugins，这个对象在 webpack 启动后实例化，全局唯一的，可以理解为 webpack 实例
+- Compilation 包含了当前模块资源，编译生成资源，变化的文件等。当 webpack 以开发模式运行时，每当检测到文件变化，一次新的 Compilation 会被创建，也提供了许多事件回调给 plugin 使用。也可以读取到 compiler
+
+Compiler 代表了 webpack 从开启到关闭等整个生命周期，而 Compilation 只代表一次新的编译
+
+### 事件流
+
+生产线，一系列流程以后 源文件 -> 输出结果，每个流程都是单一，多个流程有依赖关系，只有完成了当前处理才能传给下一个流程，插件就插入到生产线中，在特定的时机对资源做处理。
+
+webpack 事件流机制保证了插件的有序，使得扩展性很好
+
+```js
+// 广播出事件
+compiler.apply('event-name', params);
+
+// 监听事件
+compiler.plugin('event-name', function (params) {
+
+});
+```
+
+- 只要能拿到 compiler 和 compilation 就能广播事件，插件中也能广播出事件给其它插件
+
+- compiler 和 compilation 都是一个引用，一个插件将其修改了将会影响后面的插件
+
+- 异步事件，插件处理完后需要调用回调函数
+
+```js
+compiler.plugin('emit', function (compilation, callback) {
+  ...
+
+  callback(); // 如果不执行将会卡住
+});
+```
+
+### 常用 API
+
+插件可以修改输出文件，增加输出文件，提升性能
+
+**读取输出资源，代码块，模块，依赖**
+
+emit 事件发生时，表示源文件的转换和组装已完成，从这里可以读到最终输出的资源，代码块，模块和依赖，也可以修改输出内容
+
+```js
+compiler.plugin('emit', function (compilation, callback) {
+  // compilation.chunks 存放所有代码块 是个数组
+  compilation.chunks.forEach(function (chunk) {
+    // 读到组成代码块的模块
+    chunk.forEachModule(function(module) {
+      // 代表所有的依赖文件路径，为数组
+      module.fileDependencies.forEach(function (filePath) {
+
+      });
+    });
+    // 每个 chunk 对应一个及以上的输出文件
+    chunk.files.forEach((function (filename) {
+      let source = compilation.assets[filename].source(); // 获取输出的资源
+    }));
+
+    callback();
+  });
+});
+```
+
+**监听文件变化**
+
+webpack 会从配置文件入口出发，找到其依赖的模块，入口模块或者依赖模块发生变化时，触发一次新的 compilation
+
+```js
+compiler.plugin('watch-run', (watching, callback) => {
+  // 获取发生变化的文件列表，键值对，键为发生变化的文件路径
+  const changedFiles = watching.compiler.watchFileSystem.watcher.mtimes;
+});
+```
+
+默认情况只会监视入口文件和其依赖的文件是否变化，JS 不会导入 HTML，HTML 发生变化就不会触发新的 compilation，为了监听 HTML 变化，可以加入到依赖列表
+
+```js
+compiler.plugin('after-compile', (compilation, callback) => {
+  compilation.fileDependencies.push(filePath); // 加入 HTML 文件到依赖列表
+
+  callback();
+});
+```
+
+**修改输出资源**
+
+监听 emit 事件，emit 事件时所有的模块的转换和代码块对应的文件已经生成好，需要输出的资源即将输出，这是改变输出资源的最后时机
+
+```js
+compiler.plugin('emit', (compilation, callback) => {
+  // 所有输出的资源在 compilation.assets，key 为文件名称，value 为文件内容
+  compilation.assets[filename] = {
+    source: () => { // 输出文件，可以是字符串，也可以是二进制 buffer
+      return fileContent;
+    },
+    size: () => { // 输出文件大小
+      return Buffer.byteLength(fileContent, 'utf8');
+    },
+  };
+
+  callback();
+});
+```
+
+**判断使用了哪些插件**
+
+开发插件时可能需要判断是否使用了某个插件而做下一步决定
+
+```js
+function hasExtractTextPlugin(compiler) {
+  // 当前配置所有使用的插件列表
+  const plugins = compiler.options.plugins;
+  // 去 plugins 中寻找有没有 ExtractTextPlugin 的实例
+  return plugins.find(plugin => plugin.__proto__.constructor === ExtractTextPlugin) != null;
+}
 ```
