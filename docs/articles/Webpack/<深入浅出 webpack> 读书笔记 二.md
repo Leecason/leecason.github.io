@@ -52,7 +52,9 @@ prev: ./<深入浅出 webpack> 读书笔记 一.md
 3. 输出： 对编译后的 module 组合成 chunk，把 chunk 转换成文件，写入文件系统
 
 初始化阶段：读取合并参数，得出最终参数，实例化 Plugin
+
 实例化 Complier：负责文件监听和启动编译，包含了完整的 webpack 配置，全局只有一个 Complier 实例
+
 加载插件：依次调用插件的 apply，让插件可以监听后续的事件节点，传入 Complier 实例，以方便调用 webpack API
 
 ```js
