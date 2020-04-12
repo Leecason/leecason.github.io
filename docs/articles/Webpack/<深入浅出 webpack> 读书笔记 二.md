@@ -9,6 +9,7 @@ tags:
   - webpack loader
   - webpack plugin
 prev: ./<深入浅出 webpack> 读书笔记 一.md
+next: ./<深入浅出 webpack> 读书笔记 三.md
 ---
 
 ::: tip

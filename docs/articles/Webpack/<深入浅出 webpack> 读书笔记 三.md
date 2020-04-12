@@ -1,0 +1,115 @@
+---
+title: 《深入浅出 webpack》 读书笔记 三
+date: 2020-04-12
+categories:
+  - Webpack
+tags:
+  - webpack 优化
+prev: ./<深入浅出 webpack> 读书笔记 二.md
+---
+
+## 缩小文件搜索范围
+
+遇到导入语句时
+
+- 寻找导入对应的文件
+- 根据文件后缀，选择对应 loader 去解析
+
+尽量减少上述两件事的发生，加快构建
+
+### 优化 loader 配置
+
+使用 `test` `include` `exclude` 三个配置来命中 loader 要应用规则的文件
+
+### 优化 resolve.modules
+
+默认是一层一层往上查找 `node_modules` 的第三方模块，可以直接指明在当前根目录下的 `node_modules`
+
+### 优化 resolve.mainFields
+
+用于配置第三方文件的入口，`target` 为 `web` 或 `webworker`时，为 `["browser", "module", "main"]`，其它情况为 `["module", "main"]`，为减少搜索步骤，可以指明入口文件描述字段
+
+### 优化 resolve.alias
+
+通过别名来把原路径映射为新的导入路径，减少耗时的递归操作，会影响 tree shaking，需要完整文件的库可以使用此方法如 React，Vue 等，工具类库不使用此方法如 lodash 等
+
+### 优化 resolve.extensions
+
+导入语句没带后缀时 webpack 会尝试加上后缀去询问文件，默认为 `["js", "json"]`
+
+列表越长，越正确的在后面，尝试次数越多
+
+- 后缀尝试列表要尽可能的小
+- 频率高的放最前面
+- 写导入语句时尽量加上后缀
+
+### 优化 module.noParse
+
+可以让 webpack 忽略部分没采用模块化的文件的递归解析处理，提高构建性能，例如 JQuery， ChartJS，庞大又没有采用模块化规范，此类文件做解析没有意义
+
+## DllPlugin
+
+动态链接库，包含给其他模块调用和使用的数据
+
+- 把网页依赖的基础模块抽离出来，打包到动态链接库中，可以包含多个模块
+- 当需要导入的模块在动态链接库中时，该模块不能在再次打包，去向动态链接库获取
+- 页面依赖的所有动态链接库需要被加载
+
+加快构建的原因是复用的模块只用编译构建一次，之后会直接使用动态链接库的代码，通常是常用的第三方模块，模块不升级，动态链接库就不需要升级
+
+`webpack.DllPlugin` 和 `webpack.DllReferencePlugin`
+
+`DllPlugin` 中的 `name` 参数必须和 `output.library` 中保持一致，`name` 会影响输出的 `manifest.json` 中的 `name` 字段的值，`DllReferencePlugin` 会去读取 `manifest.json` 中的 `name` 字段，把值的内容作为从全局变量中获取动态链接库中内容的全局变量名
+
+## HappyPack
+
+文件数量变多后，webpack 构建速度会变慢。运行在 Node.js 上的 webpack 是单线程的，需要处理的事情只能一件一件的做
+
+HappyPack 把任务分解成多个子进程并发执行，子进程处理完后再交给主进程。
+
+> 由于 JS 是单线程模型，要发挥多个 CPU 威力，只能通过多进程
+
+- 将所有文件的处理都交给 `HappyPack/loader`，`?id='babel'` 告诉 `HappyPack` 使用哪个 `HappyPack实例` 来处理
+- `Plugin` 配置中新增 `HappyPack` 实例告诉 `HappyPack/loader` 如何处理文件，`id` 与上面对应，选项中的 `loaders` 属性和之前一致
+
+可以开启多个子进程，默认为 3 个，多个 HappyPack 可以共享一个进程池，避免资源占用过多
+
+原理：
+
+- webpack 构建中最耗时的是 loader 对文件对转换操作，因为文件数多只能一个一个处理，HappyPack 核心原理是把这部分任务分解到多个进程去并行处理，从而减少总构建时间
+- 核心调度器的代码在主进程中，也就是运行 webpack 进程中，核心调度器会把任务分配给空闲的子进程，处理完毕后发送给核心调度器，之间的数据交换通过进程间通信 API 实现
+- 核心调度器收到子进程处理完毕结果后会通知 webpack 文件处理完毕
+
+## ParallelUglifyPlugin
+
+压缩代码需要把代码解析成用 Object 表示的 AST 语法树，再去应用各种规则分析和处理 AST，导致计算量大，耗时多
+
+`ParallelUglifyPlugin` 会开启多个子进程，把对多个文件的压缩分配给多个子进程，变成了并行执行，更快的对多个文件进行压缩
+
+## 文件监听
+
+原理：
+
+- 定时获取该文件的最后编辑时间，每次都存下最后编辑时间，发现当前获取时间与保存的最后编辑时间不一致时，则认为发生了修改，`watchOptions.poll` 用于控制定时检查周期
+- 认为发生变化后，不会立即告诉监听者，而是先缓存起来，收集一段时间的变化后再一次性告诉监听者，`watchOptions.aggregateTime` 用于配置等待时间
+- 由于保存文件的路径和最后编辑时间需占用内存，定时检查会占用 CPU 和文件 I/O，所以最好减少需要监听的文件的数量和降低检查频率
+
+- 可以忽略到 node_modules 的文件，不去监听它们
+- `watchOptions.poll` 越大越好，降低检查频率
+- `watchOptions.aggregateTime` 越大越好，降低重新构建频率
+
+但会感觉到监听模式的反应和灵敏度降低了
+
+## 自动刷新
+
+webpack 负责监听模块，webpack-dev-server 负责刷新浏览器
+
+原理，有三种方法：
+
+1. 借助浏览器扩展去通过浏览器 API 刷新
+2. 往开发的网页中注入代理客户端，通过代理客户端去刷新
+3. 把要开发的网页装进 iframe 中，通过刷新 iframe 来达到效果
+
+DevServer 支持后两种，第 2 种是默认方法
+
+`devServer.inline` 控制是否注入代理客户端，默认为 `true` 表示会注入，每个 chunk 都会注入代理客户端代码，因为不知道网页依赖了哪几个 chunk，就都注入了，会导致构建变慢，可以关闭 `inline`，则需要通过 `localhost: 8000/webpack-dev-server` 来访问项目，网页被装进了 iframe 中，也可以手动注入 `<script src="http://localhost:8080/webpack-dev-server.js"></script>` 代理客户端脚本
