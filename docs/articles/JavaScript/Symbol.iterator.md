@@ -8,6 +8,15 @@ tags:
   - ES6
 ---
 
+::: tip
+1. iterator 作用
+2. iterator 遍历过程
+3. 默认 iterator 接口
+4. 调用 iterator 场合
+:::
+
+<!-- more -->
+
 ## iterator 作用
 
 - 为各种数据接口（`Array`、`Object`，ES6 新增的 `Map`、`Set`）提供一个统一、简便的访问接口
@@ -26,7 +35,7 @@ tags:
 - `value`: 当前成员的值
 - `done`: 表示遍历是否结束
 
-## iterator 接口
+## 默认 iterator 接口
 
 当使用 `for...of` 时就会自动去找 iterator 接口
 
