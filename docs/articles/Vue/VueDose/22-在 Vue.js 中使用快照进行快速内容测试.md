@@ -5,13 +5,11 @@ sidebar: false
 categories:
   - Vue
 tags:
-  - Vue
   - Vue 2
   - Jest
   - 测试
   - Snapshot Testing
   - VueDose
-  - Vue tips
   - 文章翻译
 prev: ./21-在 Vue.js 有作用域的 CSS 中使用 deep 选择器来设置内部元素的样式
 next: ./23-在 Vue.js 中使用作用域插槽

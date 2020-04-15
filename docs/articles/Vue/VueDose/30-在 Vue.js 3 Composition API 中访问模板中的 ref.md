@@ -5,10 +5,8 @@ sidebar: false
 categories:
   - Vue
 tags:
-  - Vue
   - Vue 3
   - VueDose
-  - Vue tips
   - 文章翻译
 prev: ./29-在 Vue.js 3 Composition API 中访问实例属性
 next: ./31-在 Vue.js 3 中使用 Composition API 构建 i18n 插件

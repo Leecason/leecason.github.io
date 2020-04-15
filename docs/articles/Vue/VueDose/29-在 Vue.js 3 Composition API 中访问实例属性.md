@@ -5,10 +5,8 @@ sidebar: false
 categories:
   - Vue
 tags:
-  - Vue
   - Vue 3
   - VueDose
-  - Vue tips
   - 文章翻译
 prev: ./28-轻松切换到 Vue.js 3 Composition API
 next: ./30-在 Vue.js 3 Composition API 中访问模板中的 ref

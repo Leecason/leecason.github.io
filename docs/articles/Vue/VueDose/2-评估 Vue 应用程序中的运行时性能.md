@@ -5,13 +5,11 @@ sidebar: false
 categories:
   - Vue
 tags:
-  - Vue
   - Vue 2
   - VueDose
-  - Vue tips
-  - Web 性能
+  - 性能优化
+  - 代码调试
   - 文章翻译
-  - 浏览器调试
 prev: ./1-提高 Vue 中大型列表的性能
 next: ./3-通过 PurgeCss 移除未使用的 CSS
 ---

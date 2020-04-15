@@ -5,11 +5,9 @@ sidebar: false
 categories:
   - Vue
 tags:
-  - Vue
   - Vue 2
-  - webpack
   - VueDose
-  - Vue tips
+  - 性能优化
   - 文章翻译
 prev: ./14-在 Vue 侦听器中测试逻辑
 next: ./16-使用 v-lazy-image 懒加载图片

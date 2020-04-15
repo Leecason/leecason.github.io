@@ -5,13 +5,11 @@ sidebar: false
 categories:
   - Vue
 tags:
-  - Vue
   - Vue 2
   - Jest
   - 测试
   - Snapshot Testing
   - VueDose
-  - Vue tips
   - 文章翻译
 prev: ./8-关于 Vuex 的两个鲜为人知的事实
 next: ./10-监听第三方 Vue.js 组件上的生命周期钩子

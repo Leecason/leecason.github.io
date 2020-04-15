@@ -5,10 +5,8 @@ sidebar: false
 categories:
   - Vue
 tags:
-  - Vue
   - Vue 2
   - VueDose
-  - Vue tips
   - 文章翻译
 prev: ./4-Vue 2.6 中的新指令 v-slot
 next: ./6-在 Vue 2.6 中不使用 Vuex 创建 Store

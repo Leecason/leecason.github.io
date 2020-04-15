@@ -5,9 +5,9 @@ sidebar: false
 categories:
   - Vue
 tags:
-  - Vue
+  - Vue 2
+  - Vue 3
   - VueDose
-  - Vue tips
   - 文章翻译
 prev: ./31-在 Vue.js 3 中使用 Composition API 构建 i18n 插件
 

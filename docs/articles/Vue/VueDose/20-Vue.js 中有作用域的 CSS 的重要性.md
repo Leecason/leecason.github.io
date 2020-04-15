@@ -5,10 +5,8 @@ sidebar: false
 categories:
   - Vue
 tags:
-  - Vue
   - Vue 2
   - VueDose
-  - Vue tips
   - 文章翻译
 prev: ./19-用 MaxMind 实现地理货币
 next: ./21-在 Vue.js 有作用域的 CSS 中使用 deep 选择器来设置内部元素的样式

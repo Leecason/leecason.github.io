@@ -5,12 +5,9 @@ sidebar: false
 categories:
   - Vue
 tags:
-  - Vue
   - Vue 2
   - VueDose
-  - Vue tips
-  - CSS
-  - Web 性能
+  - 性能优化
   - 文章翻译
 prev: ./2-评估 Vue 应用程序中的运行时性能
 next: ./4-Vue 2.6 中的新指令 v-slot

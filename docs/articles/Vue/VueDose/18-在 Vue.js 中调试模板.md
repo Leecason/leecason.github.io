@@ -5,11 +5,9 @@ sidebar: false
 categories:
   - Vue
 tags:
-  - Vue
   - Vue 2
-  - 调试
+  - 代码调试
   - VueDose
-  - Vue tips
   - 文章翻译
 prev: ./17-Nuxt.js 中页面和布局之间的简单过渡效果
 next: ./19-用 MaxMind 实现地理货币

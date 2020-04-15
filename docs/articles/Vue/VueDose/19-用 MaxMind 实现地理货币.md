@@ -5,11 +5,9 @@ sidebar: false
 categories:
   - Vue
 tags:
-  - Vue
   - Vue 2
   - Nuxt
   - VueDose
-  - Vue tips
   - 文章翻译
 prev: ./18-在 Vue.js 中调试模板
 next: ./20-Vue.js 中有作用域的 CSS 的重要性

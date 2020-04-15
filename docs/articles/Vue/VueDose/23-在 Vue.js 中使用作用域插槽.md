@@ -5,10 +5,8 @@ sidebar: false
 categories:
   - Vue
 tags:
-  - Vue
   - Vue 2
   - VueDose
-  - Vue tips
   - 文章翻译
 prev: ./22-在 Vue.js 中使用快照进行快速内容测试
 next: ./24-Vue.js 中的数据提供（Data Provider）组件

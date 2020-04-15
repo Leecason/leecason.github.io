@@ -5,10 +5,8 @@ sidebar: false
 categories:
   - Vue
 tags:
-  - Vue
   - Vue 2
   - VueDose
-  - Vue tips
   - 文章翻译
 prev: ./20-Vue.js 中有作用域的 CSS 的重要性
 next: ./22-在 Vue.js 中使用快照进行快速内容测试

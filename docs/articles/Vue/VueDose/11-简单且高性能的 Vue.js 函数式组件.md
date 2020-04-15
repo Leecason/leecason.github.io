@@ -5,10 +5,8 @@ sidebar: false
 categories:
   - Vue
 tags:
-  - Vue
   - Vue 2
   - VueDose
-  - Vue tips
   - 文章翻译
 prev: ./10-监听第三方 Vue.js 组件上的生命周期钩子
 next: ./12-当 Vue 组件创建的时候执行侦听器

@@ -5,11 +5,9 @@ sidebar: false
 categories:
   - Vue
 tags:
-  - Vue
   - Vuex
   - Vue 2
   - VueDose
-  - Vue tips
   - 文章翻译
 prev: ./7-基于 vue-multiselect 构建一个 ImageSelect 组件
 next: ./9-快照测试（Snapshot Testing）在 Vue.js 中的威力

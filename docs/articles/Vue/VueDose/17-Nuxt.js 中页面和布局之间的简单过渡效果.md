@@ -5,11 +5,9 @@ sidebar: false
 categories:
   - Vue
 tags:
-  - Vue
   - Vue 2
   - Nuxt
   - VueDose
-  - Vue tips
   - 文章翻译
 prev: ./16-使用 v-lazy-image 懒加载图片
 next: ./18-在 Vue.js 中调试模板

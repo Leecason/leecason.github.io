@@ -5,10 +5,8 @@ sidebar: false
 categories:
   - Vue
 tags:
-  - Vue
   - Vue 2
   - VueDose
-  - Vue tips
   - 文章翻译
 prev: ./24-Vue.js 中的数据提供（Data Provider）组件
 next: ./26-使用 CSS Conic Gradient 和 Vue.js 的最现代的饼图组件

@@ -5,10 +5,8 @@ sidebar: false
 categories:
   - Vue
 tags:
-  - Vue
   - Vue 2
   - VueDose
-  - Vue tips
   - 文章翻译
 prev: ./25-使用 CSS Scroll Snap 和 Vue.js 的最现代的轮播组件
 next: ./27-在 Vue.js 中使用 CSS 变量进行主题化

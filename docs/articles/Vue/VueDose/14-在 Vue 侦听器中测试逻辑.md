@@ -5,11 +5,9 @@ sidebar: false
 categories:
   - Vue
 tags:
-  - Vue
   - Vue 2
   - 测试
   - VueDose
-  - Vue tips
   - 文章翻译
 prev: ./13-在 Nuxt.js 中重定向 404 Not Found
 next: ./15-在 Vue.js 中使用动态引入提高性能

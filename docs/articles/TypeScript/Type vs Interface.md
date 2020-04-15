@@ -3,8 +3,6 @@ title: TypeScript： Type vs Interface
 date: 2020-02-21
 categories:
   - TypeScript
-tags:
-  - TypeScript
 prev: ./进阶使用.md
 ---
 

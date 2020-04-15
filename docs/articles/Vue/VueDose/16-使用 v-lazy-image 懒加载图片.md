@@ -5,10 +5,8 @@ sidebar: false
 categories:
   - Vue
 tags:
-  - Vue
   - Vue 2
   - VueDose
-  - Vue tips
   - 文章翻译
 prev: ./15-在 Vue.js 中使用动态引入提高性能
 next: ./17-Nuxt.js 中页面和布局之间的简单过渡效果

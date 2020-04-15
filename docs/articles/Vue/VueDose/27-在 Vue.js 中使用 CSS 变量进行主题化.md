@@ -5,10 +5,8 @@ sidebar: false
 categories:
   - Vue
 tags:
-  - Vue
   - Vue 2
   - VueDose
-  - Vue tips
   - 文章翻译
 prev: ./26-使用 CSS Conic Gradient 和 Vue.js 的最现代的饼图组件
 next: ./28-轻松切换到 Vue.js 3 Composition API

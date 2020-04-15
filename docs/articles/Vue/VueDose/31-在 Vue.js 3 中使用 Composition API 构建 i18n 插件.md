@@ -5,10 +5,8 @@ sidebar: false
 categories:
   - Vue
 tags:
-  - Vue
   - Vue 3
   - VueDose
-  - Vue tips
   - 文章翻译
 prev: ./30-在 Vue.js 3 Composition API 中访问模板中的 ref
 next: ./32-Vue.js 测试中的深层渲染 VS 浅层渲染

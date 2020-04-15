@@ -3,9 +3,6 @@ title: 安全的 CSS 初始值
 date: 2020-02-26
 categories:
   - CSS
-tags:
-  - CSS
-  - CSS 初始值
 ---
 
 ::: tip

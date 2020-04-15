@@ -4,9 +4,8 @@ date: 2019-08-31
 categories:
   - Webpack
 tags:
-  - webpack
   - 部署
-  - 持久化缓存
+  - 性能优化
 ---
 
 ::: tip

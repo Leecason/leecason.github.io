@@ -5,10 +5,8 @@ sidebar: false
 categories:
   - Vue
 tags:
-  - Vue
   - Vue 2
   - VueDose
-  - Vue tips
   - 文章翻译
 prev: ./9-快照测试（Snapshot Testing）在 Vue.js 中的威力
 next: ./11-简单且高性能的 Vue.js 函数式组件

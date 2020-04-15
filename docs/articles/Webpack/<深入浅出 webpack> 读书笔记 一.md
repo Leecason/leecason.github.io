@@ -7,9 +7,7 @@ tags:
   - 模块化
   - AMD
   - CommonJS
-  - ES Module
-  - webpack
-  - 核心概念
+  - ES6
 next: ./<深入浅出 webpack> 读书笔记 二.md
 ---
 

@@ -4,7 +4,7 @@ date: 2019-01-11
 categories:
   - JavaScript
 tags:
-  - HTTP 缓存
+  - HTTP
 ---
 
 ::: tip

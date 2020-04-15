@@ -5,11 +5,9 @@ sidebar: false
 categories:
   - Vue
 tags:
-  - Vue
   - Vue 2
   - VueDose
-  - Vue tips
-  - Web 性能
+  - 性能优化
   - 文章翻译
 next: ./2-评估 Vue 应用程序中的运行时性能
 ---

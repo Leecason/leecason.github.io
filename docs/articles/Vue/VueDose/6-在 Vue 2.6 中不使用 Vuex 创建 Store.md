@@ -5,11 +5,9 @@ sidebar: false
 categories:
   - Vue
 tags:
-  - Vue
   - Vuex
   - Vue 2
   - VueDose
-  - Vue tips
   - 文章翻译
 prev: ./5-使用 v-bind 和 v-on 的自适应组件
 next: ./7-基于 vue-multiselect 构建一个 ImageSelect 组件

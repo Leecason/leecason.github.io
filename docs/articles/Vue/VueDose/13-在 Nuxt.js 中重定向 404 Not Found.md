@@ -5,11 +5,9 @@ sidebar: false
 categories:
   - Vue
 tags:
-  - Vue
   - Vue 2
   - Nuxt
   - VueDose
-  - Vue tips
   - 文章翻译
 prev: ./12-当 Vue 组件创建的时候执行侦听器
 next: ./14-在 Vue 侦听器中测试逻辑

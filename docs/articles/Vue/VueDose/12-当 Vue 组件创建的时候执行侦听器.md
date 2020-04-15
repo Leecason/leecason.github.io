@@ -5,10 +5,8 @@ sidebar: false
 categories:
   - Vue
 tags:
-  - Vue
   - Vue 2
   - VueDose
-  - Vue tips
   - 文章翻译
 prev: ./11-简单且高性能的 Vue.js 函数式组件
 next: ./13-在 Nuxt.js 中重定向 404 Not Found
