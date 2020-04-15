@@ -6,7 +6,6 @@ categories:
 tags:
   - ProseMirror
   - 富文本编辑器
-  - JavaScript
 ---
 
 ::: tip

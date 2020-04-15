@@ -8,7 +8,6 @@ tags:
   - 动画
   - polyfill
   - 兼容
-  - JavaScript
 ---
 
 ::: tip

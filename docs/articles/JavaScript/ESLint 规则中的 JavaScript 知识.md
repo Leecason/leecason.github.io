@@ -5,7 +5,6 @@ categories:
   - JavaScript
 tags:
   - ESLint
-  - JavaScript
 ---
 
 <!-- more -->

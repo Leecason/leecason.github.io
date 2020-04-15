@@ -5,7 +5,6 @@ categories:
   - JavaScript
 tags:
   - HTTP 缓存
-  - JavaScript
 ---
 
 ::: tip

@@ -6,7 +6,6 @@ categories:
 tags:
   - babel
   - webpack
-  - JavaScript
 ---
 
 ::: tip

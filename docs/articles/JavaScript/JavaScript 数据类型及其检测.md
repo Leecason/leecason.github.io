@@ -5,7 +5,6 @@ categories:
   - JavaScript
 tags:
   - 数据类型
-  - 数据类型检测
 ---
 
 ::: tip
