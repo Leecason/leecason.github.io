@@ -5,6 +5,7 @@ categories:
   - JavaScript
 tags:
   - ES6
+  - 手写源码系列
 ---
 
 ::: tip
