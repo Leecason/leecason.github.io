@@ -10,7 +10,7 @@ tags:
   - VueDose
   - 文章翻译
 prev: ./31-在 Vue.js 3 中使用 Composition API 构建 i18n 插件
-
+next: ./33-在 Vue.js 组件中使用 Web Worker 获得极致性能
 ---
 
 测试仍然是现在最具争议的开发主题之一，深层渲染与浅层渲染也不例外。在这个 Tip 中，我想说明为什么以及何时使用它们。
