@@ -10,7 +10,7 @@ tags:
   - VueDose
   - 文章翻译
 prev: ./32-Vue.js 测试中的深层渲染 VS 浅层渲染
-
+next: ./34-在 Vue.js 使用命名 webpack chunk 懒加载路由
 ---
 
 在第一篇文章中，我展现了一个技巧来[提高 Vue 中大型列表的性能](/articles/Vue/VueDose/1-提高%20Vue%20中大型列表的性能.html)，这是一个很好的开始。
@@ -140,3 +140,5 @@ self.addEventListener("message", ({ data }) => {
 ![web_worker_patch_improvement](./images/web_worker_patch_improvement.png)
 
 如果你不知道 `render` 和 `patch` 的含义，在[这篇文章](https://vuedose.tips/tips/measure-runtime-performance-in-vue-js-apps)中有说明。
+
+### [原文链接](https://vuedose.tips/tips/use-web-workers-in-your-vuejs-component-for-max-performance)
