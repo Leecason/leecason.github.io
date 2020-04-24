@@ -123,27 +123,19 @@ function Promise (executor) {
   self.onRejectCallbacks = [];
 
   function resolve (value) {
-    if (value instanceof Promise) {
-      return value.then(resolve, reject);
+    if (self.status === PENDING) {
+      self.status = RESOLVED;
+      self.value = value;
+      self.onResolveCallbacks.forEach((cb) => cb(self.value));
     }
-
-    setTimeout(() => { // 异步执行
-      if (self.state === PENDING) {
-        self.state = RESOLVED;
-        self.value = value;
-        self.onResolveCallbacks.forEach((cb) => cb(self.value));
-      }
-    }, 0);
   }
 
   function reject (reason) {
-    setTimeout(() => { // 异步执行
-      if (self.state === PENDING) {
-        self.state = REJECTED;
-        self.reason = reason;
-        self.onRejectCallbacks.forEach((cb) => cb(self.reason));
-      }
-    }, 0);
+    if (self.status === PENDING) {
+      self.status = REJECTED;
+      self.reason = reason;
+      self.onRejectCallbacks.forEach((cb) => cb(self.reason));
+    }
   }
 
   try { // executor 可能出错，需要捕获并 reject
@@ -155,53 +147,55 @@ function Promise (executor) {
 
 Promise.prototype.then = function (onFulfilled, onRejected) {
   const self = this;
+
   onFulfilled = typeof onFulfilled === 'function' ? onFulfilled : v => v;
-  onRejected = typeof onRejected === 'function' ? onRejected : r => r;
+  onRejected = typeof onRejected === 'function' ? onRejected : r => { throw r };
 
   // 每个 then 函数都需要返回一个新的 promise
   let promise2 = new Promise(function (resolve, reject) {
-    if (self.state === RESOLVED) {
-      setTimeout(function () { // 异步执行
+    if (self.status === RESOLVED) {
+      // 标准 2.2.4
+      // 确保 onFulfilled 和 onRejected 方法异步执行，且应该在 then 方法被调用的那一轮事件循环之后的新执行栈中执行
+      setTimeout(function () {
         try {
           const x = onFulfilled(self.value);
           // x 可能为普通值，也可能为 promise
           // 判断 x 的值 => promise2 的状态
-          resolutionProcedure(promise2, x, resolve, reject);
+          resolvePromise(promise2, x, resolve, reject);
         } catch (e) {
           reject(e);
         }
       }, 0);
     }
 
-    if (self.state === REJECTED) {
+    if (self.status === REJECTED) {
       setTimeout(function () { // 异步执行
         try {
           const x = onRejected(self.reason);
-          resolutionProcedure(promise2, x, resolve, reject);
+          resolvePromise(promise2, x, resolve, reject);
         } catch (e) {
           reject(e);
         }
       }, 0);
     }
 
-    if (self.state === PENDING) {
+    if (self.status === PENDING) {
       self.onResolveCallbacks.push(function (value) {
         setTimeout(function () { // 异步执行
           try {
             const x = onFulfilled(self.value);
-            // 若 x 也为 promise，可能是第三方库实现的 thenable 对象
-            resolutionProcedure(promise2, x, resolve, reject);
+            resolvePromise(promise2, x, resolve, reject);
           } catch (e) {
             reject(e);
           }
-        });
+        }, 0);
       });
 
       self.onRejectCallbacks.push(function (reason) {
         setTimeout(function () { // 异步执行
           try {
             const x = onRejected(self.reason);
-            resolutionProcedure(promise2, x, resolve, reject);
+            resolvePromise(promise2, x, resolve, reject);
           } catch (e) {
             reject(e);
           }
@@ -211,43 +205,35 @@ Promise.prototype.then = function (onFulfilled, onRejected) {
   });
 
   return promise2;
-}
+};
 
-// 实现兼容多种 promise 的 resolutionProcedure
+// 实现兼容多种 promise 的 resolvePromise
 // https://promisesaplus.com/#point-47
 // 根据标准来实现
-function resolutionProcedure (promise2, x, resolve, reject) {
-  if (primise2 === x) { // 标准 2.3.1，x 不能与 promise2 相等
+function resolvePromise (promise2, x, resolve, reject) {
+  if (promise2 === x) { // 标准 2.3.1，x 不能与 promise2 相等
     return reject(new TypeError('Chaining cycle detected for promise!'))
   }
 
-  if (x instanceof Promise) { // 标准 2.3.2
-    // 如果 x 状态还没确定，需要等待直到 x 状态改变
-    if (x.status === PENDING) {
-      x.then(function (value) {
-        resolutionProcedure(promise2, value, resolve, reject);
-      }, reject);
-    } else {
-      x.then(resolve, reject);
-    }
-  }
-
-  let called = false; // 标记是否已经调用过函数
-   // 2.3.3
+  // 标记是否已经调用过函数
+  // 如果返回的是 promise 在执行其 resolve 或 reject 后不能再 resolve 或 reject
+  let called = false;
    // 判断 x 是否为对象或函数，否则直接 resolve
   if (x !== null && (typeof x === 'object' || typeof x === 'function')) {
     try {
-      // 获取 then 方法
+      // 获取 then 方法，获取 x.then 时可能报错，如果抛错需要捕获并调用 promise2 的 reject
       let then = x.then;
       if (typeof then === 'function') { // 如果 then 为函数
+        // 如果再使用 x.then 取值时可能会抛错，因为可能是其它库实现的
+        // 所以使用已经获取到的 then 方法
         then.call(
           x,
-          function (v) {
+          y => { // 返回值 y 也可能是 promise
             if (called) return;
             called = true;
-            resolutionProcedure(promise2, v, resolve, reject);
+            resolvePromise(promise2, y, resolve, reject);
           },
-          function (r) {
+          r => {
             if (called) return;
             called = true;
             reject(r);
@@ -260,7 +246,7 @@ function resolutionProcedure (promise2, x, resolve, reject) {
       called = true;
       reject(e);
     }
-  } else { // 2.3.4
+  } else { // x 为普通值，直接调用 promise 2 的 resolve
     resolve(x);
   }
 }
