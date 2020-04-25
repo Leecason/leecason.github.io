@@ -33,9 +33,7 @@ tags:
 
 - 无法中止
 
-## 实现
-
-### 简易版本
+## 简易版本
 
 ```js
 const PENDING = 'pending';
@@ -104,7 +102,7 @@ Promise.prototype.then = function (onFulfilled, onRejected) {
 }
 ```
 
-### promise A+ 规范
+## promise A+ 规范
 
 ```js
 const PENDING = 'pending';
@@ -155,7 +153,8 @@ Promise.prototype.then = function (onFulfilled, onRejected) {
   let promise2 = new Promise(function (resolve, reject) {
     if (self.status === RESOLVED) {
       // 标准 2.2.4
-      // 确保 onFulfilled 和 onRejected 方法异步执行，且应该在 then 方法被调用的那一轮事件循环之后的新执行栈中执行
+      // 确保 onFulfilled 和 onRejected 方法异步执行
+      // 且应该在 then 方法被调用的那一轮事件循环之后的新执行栈中执行
       setTimeout(function () {
         try {
           const x = onFulfilled(self.value);
@@ -249,5 +248,92 @@ function resolvePromise (promise2, x, resolve, reject) {
   } else { // x 为普通值，直接调用 promise 2 的 resolve
     resolve(x);
   }
+}
+```
+
+## 实现 Promise.prototype.catch
+
+```js
+Promise.prototype.catch = function (errFn) {
+   // 当 onFulfilled 不为函数时会在内部生成 (value) => value 函数实现透传
+  return this.then(null, errFn);
+}
+```
+
+## 实现 Promise.prototype.finally
+
+- 传入的函数无论 resolve reject 都会执行
+
+```js
+Promise.prototype.finally = function (cb) {
+  return this.then(data => {
+    // 如果 resolve 则传入 data 到下一个的 resolve
+    // 如果 cb 返回值为 promise，则需要等待 promise 执行完再把 data 传下去
+    return Promise.resolve(cb()).then(() => data);
+  }, err => {
+    // 同上
+    return Promise.resolve(cb()).then(() => { throw err });
+  });
+}
+```
+
+## 实现 Promise.all
+
+- 返回 promise
+- 全部 resolve 才 resolve，有一个 reject 就 reject
+
+```js
+Promise.all = function (values) {
+  return new Promise((resolve, reject) => {
+      const result = []; // 存储每一项的结果
+      let index = 0; // 记录收集了多少结果
+
+      const processData = (data, i) => { // 收集结果，如果收集完成，则 resolve
+        result[i] = data;
+        if (++index === values.length) {
+          resolve(result);
+        }
+      };
+
+       // 遍历 values
+       // 如果是 promise 就搜集它 resolve 的结果
+       // 如果 reject 则 promise.all 也 reject
+       // 如果是普通值则直接收集
+      for (let i = 0; i < values.length; i++) {
+        let curr = values[i];
+        if (curr && curr.then && typeof curr.then === 'function') { // 是否为 promise
+          curr.then((y) => {
+            processData(y, i);
+          }, (r) => {
+            reject(r);
+          });
+        } else {
+          processData(curr, i);
+        }
+      }
+  });
+}
+```
+
+## 实现 Promise.race
+
+- 返回 promise
+- 如果某一个 resolve 或 reject 了就采用它的结果
+
+```js
+Promise.race = function (values) {
+  return new Promise((resolve, reject) => {
+    for (let i = 0; i < values.length; i++) {
+      let curr = values[i];
+      if (curr && curr.then && curr.then === 'function') { // 是否为 promise
+        // 因为 promise 状态改变后不能再 resolve 或 reject
+        // 所以某一个第一次 resolve 或 reject 了就会采用它的结果
+        curr.then(resolve, reject);
+      } else {
+        // 如果是普通值则直接 resolve
+        resolve(curr);
+      }
+    }
+  });
 }
 ```
