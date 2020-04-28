@@ -51,5 +51,6 @@ module.exports = {
   },
   plugins: [
     'ribbon', // 彩带背景
+    'cursor-effects',
   ],
 };

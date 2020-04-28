@@ -8197,6 +8197,11 @@ vuepress-plugin-container@^2.0.2:
   dependencies:
     markdown-it-container "^2.0.0"
 
+vuepress-plugin-cursor-effects@^0.0.4:
+  version "0.0.4"
+  resolved "https://registry.yarnpkg.com/vuepress-plugin-cursor-effects/-/vuepress-plugin-cursor-effects-0.0.4.tgz#f8596c9b90da314d46571fc11f11b6b6f634d4a8"
+  integrity sha512-QBzd00awqtBazV7RqQqaCVYh7rIhAhepnNVpCaTDyrq0fsQllxkrCWyz3vg1U1y8d7z7O6BWNwK9SBv4T9Lo/A==
+
 vuepress-plugin-disqus@^0.2.0:
   version "0.2.0"
   resolved "https://registry.yarnpkg.com/vuepress-plugin-disqus/-/vuepress-plugin-disqus-0.2.0.tgz#0a5bde424f81e0185eda36fba23d7ac4cae6ff07"
