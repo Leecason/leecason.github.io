@@ -9,14 +9,28 @@ tags:
 ---
 
 ::: tip
-1. 实现 let、const
-2. 手写 call、apply
-3. 手写 bind
-4. 实现 instanceof
-5. 数组扁平化
+1. 实现 new 操作符
+2. 实现 let、const
+3. 手写 call、apply
+4. 手写 bind
+5. 实现 instanceof
+6. 数组扁平化
 :::
 
 <!-- more -->
+
+## 实现 new 操作符
+
+```js
+function myNew (fn, ...args) {
+  let obj = Object.create(fn.prototype); // 相当于 obj.__proto__ = foo.prototype
+
+  let result = fn.apply(obj, args); // 执行构造方法, 绑定新 this
+
+  // 如果构造方法 return 了一个对象，那么就返回该对象，否则返回创建的新对象
+  return Object.prototype.toString.call(result) === '[object Object]' ? result : obj;
+}
+```
 
 ## 实现 let
 
@@ -98,11 +112,9 @@ Function.prototype.myBind = function (context, ...args1) {
   }
 
   const fn = this;
-  console.log(fn);
 
   const bound = function (...args2) {
     const args = args1.concat(args2);
-    console.log(this);
     const ctx = this instanceof fn // 是否为 new 调用
       ? this
       : context
