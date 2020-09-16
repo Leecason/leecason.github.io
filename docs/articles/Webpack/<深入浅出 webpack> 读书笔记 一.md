@@ -1,6 +1,6 @@
 ---
 title: 《深入浅出 webpack》 读书笔记 一
-date: 2020-04-07
+date: 2019-04-07
 categories:
   - Webpack
 tags:
@@ -166,4 +166,4 @@ CSS 预处理器，更好的管理代码，抽离公共部分，写出更灵活�
 - **Plugin** 扩展插件，在 Webpack 构建流程中的特定时机注入扩展逻辑来改变构建结果
 - **Output** 输出结构，在 webpack 经过一系列处理并得出最终想要的代码后输出结果
 
-webpack 会从 Entry 里配置的 module 开始递归解析 module 所依赖的所有 module，每找到一个 module，就会根据配置的 loader 找到对应的转换规则，对 module 进行转换后，再解析出当前 module 依赖的 module。这些模块以 Entry 为单位进行分组，一个 Entry 和其所依赖的 module 被分到一个组即一个 Chunk。最后 webpack 会把所有的 Chunk 转换成文件输出。在整个流程中 webpack 会在恰当的实际执行 Plugin 里定义的逻辑。
+webpack 会从 Entry 里配置的 module 开始递归解析 module 所依赖的所有 module，每找到一个 module，就会根据配置的 loader 找到对应的转换规则，对 module 进行转换后，再解析出当前 module 依赖的 module。这些模块以 Entry 为单位进行分组，一个 Entry 和其所依赖的 module 被分到一个组即一个 Chunk。最后 webpack 会把所有的 Chunk 转换成文件输出。在整个流程中 webpack 会在恰当的时机执行 Plugin 里定义的逻辑。

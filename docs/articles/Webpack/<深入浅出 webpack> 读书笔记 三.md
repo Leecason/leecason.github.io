@@ -1,6 +1,6 @@
 ---
 title: 《深入浅出 webpack》 读书笔记 三
-date: 2020-04-12
+date: 2019-04-12
 categories:
   - Webpack
 tags:
@@ -103,7 +103,7 @@ HappyPack 把任务分解成多个子进程并发执行，子进程处理完后�
 - 由于保存文件的路径和最后编辑时间需占用内存，定时检查会占用 CPU 和文件 I/O，所以最好减少需要监听的文件的数量和降低检查频率
 
 - 可以忽略到 node_modules 的文件，不去监听它们
-- `watchOptions.poll` 越大越好，降低检查频率
+- `watchOptions.poll` 越小越好，降低检查频率
 - `watchOptions.aggregateTime` 越大越好，降低重新构建频率
 
 但会感觉到监听模式的反应和灵敏度降低了
