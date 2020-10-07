@@ -286,11 +286,11 @@ Promise.prototype.finally = function (cb) {
 Promise.all = function (values) {
   return new Promise((resolve, reject) => {
       const result = []; // 存储每一项的结果
-      let index = 0; // 记录收集了多少结果
+      let count = 0; // 记录收集了多少结果
 
       const processData = (data, i) => { // 收集结果，如果收集完成，则 resolve
         result[i] = data;
-        if (++index === values.length) {
+        if (++count === values.length) {
           resolve(result);
         }
       };
@@ -325,13 +325,50 @@ Promise.race = function (values) {
   return new Promise((resolve, reject) => {
     for (let i = 0; i < values.length; i++) {
       let curr = values[i];
-      if (curr && curr.then && curr.then === 'function') { // 是否为 promise
+      if (curr && curr.then && typeof curr.then === 'function') { // 是否为 promise
         // 因为 promise 状态改变后不能再 resolve 或 reject
         // 所以某一个第一次 resolve 或 reject 了就会采用它的结果
         curr.then(resolve, reject);
       } else {
         // 如果是普通值则直接 resolve
         resolve(curr);
+      }
+    }
+  });
+}
+```
+
+## 实现 Promise.allSettled
+
+- 返回 promise
+- 所有 resolve 或 reject 的结果都会收集，可以知道每个 promise 的结果
+
+```js
+Promise.allSettled = function (values) {
+  return new Promise ((resolve, reject) => {
+    const result = []; // 存储每一项的结果
+    let count = 0;
+
+    const processData = (data, i) => { // 收集结果，如果收集完成，则 resolve
+      result[i] = data;
+      if (++count === values.length) {
+        resolve(result);
+      }
+    };
+
+    // 遍历 values
+    // 如果是 promise 就搜集它 resolve 或 reject 的结果
+    // 如果是普通值则直接收集
+    for (let i = 0; i < values.length; i++) {
+      let curr = values[i];
+      if (curr && curr.then && typeof curr.then === 'function') { // 是否为 promise
+        curr.then((y) => {
+          processData(y, i);
+        }, (err) => {
+          processData(err, i);
+        });
+      } else {
+        processData(curr, i);
       }
     }
   });
